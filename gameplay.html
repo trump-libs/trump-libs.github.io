@@ -20,11 +20,9 @@
 		var words = new Array;
 		function pullTweet()
 		{
-			console.log("test");
 			url = "https://trump-libs.herokuapp.com/getTweet";
 			$.get(url, function(data){
 				sampleText = data;
-				console.log(sampleText);
 			});
 		}
 		//$(document).ready(function() 
@@ -61,9 +59,9 @@
 							
 							if (pos3[1] != null)
 								words[2][2] = pos3[1].textContent;
-							console.log(words[0][0] + " " + words[0][1] + " " + words[0][2]);
-							console.log(words[1][0] + " " + words[1][1] + " " + words[1][2]);
-							console.log(words[2][0] + " " + words[2][1] + " " + words[2][2]);
+							//console.log(words[0][0] + " " + words[0][1] + " " + words[0][2]);
+							//console.log(words[1][0] + " " + words[1][1] + " " + words[1][2]);
+							//console.log(words[2][0] + " " + words[2][1] + " " + words[2][2]);
 							if (words[0][1] == "DNE" || words[1][1] == "DNE" || words[2][1] == "DNE")
 								alert("Warning: one or more of your words were not real words and will not appear in the Mad Lib");
 							prepareText();
