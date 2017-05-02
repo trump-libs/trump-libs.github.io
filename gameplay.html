@@ -155,7 +155,7 @@
 					url = "https://trump-libs.herokuapp.com/submit";
 					$.post(url, {tweet: finalString}, function(data){
 						//sampleText = data;
-						console.log("posting, status: " + data);
+						//console.log("posting, status: " + data);
 						var queryString = "?madlib=" + finalString;
 						window.location.href = "display.html" + queryString;
 					});
