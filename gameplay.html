@@ -150,7 +150,7 @@
 					var finalString = "";
 					for (var i = 0; i < maxi; i++)
 						finalString += punctuation[i][0] + posArray[i][0] + punctuation[i][1] + " ";
-					displayArea.innerHTML += finalString;
+					//displayArea.innerHTML += finalString;
 					// send the fake tweet back to server
 					url = "https://trump-libs.herokuapp.com/submit";
 					$.post(url, {tweet: finalString}, function(data){
