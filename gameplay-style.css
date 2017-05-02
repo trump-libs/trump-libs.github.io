@@ -97,13 +97,13 @@ form{
 }
 #dictForm1{
         align-content: center;
-        width: 15%;
+        width: 30%;
         font-size: 15px;
 }
 #dictForm2{
         align-content: center;
         /*margin-left: 5em;*/
-        width: 15%;
+        width: 30%;
 	margin-left: 10px;
 	margin-right: 10px;
         font-size: 15px;
@@ -111,7 +111,7 @@ form{
 #dictForm3{
         align-content: center;
         /*margin-left: 5em;*/
-        width: 15%;
+        width: 30%;
         font-size: 15px;
 }
 /*#top{
