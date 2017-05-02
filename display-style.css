@@ -11,7 +11,7 @@ body{
 	background:-o-radial-gradient(circle, white 5%, whitesmoke 100%);
 	background:-ms-radial-gradient(circle, white 5%, whitesmoke 100%);
 	background:radial-gradient(circle, white 5%, whitesmoke 100%);*/
-	background-image: url("flag modified.jpg");
+	background-image: url("flagmodified.jpg");
 	background-size: 100% 475%;
 	background-repeat: no-repeat;
 	position: relative;
