@@ -35,7 +35,7 @@
 				words[0] = [$("#dictForm1").val(), "DNE", "DNE"];
 				words[1] = [$("#dictForm2").val(), "DNE", "DNE"];
 				words[2] = [$("#dictForm3").val(), "DNE", "DNE"];
-				url = "http://www.dictionaryapi.com/api/v1/references/collegiate/xml/"+ words[0][0] +"?key=6474e14c-8bcf-4cca-a054-1b72f37b9b76";
+				url = "https://www.dictionaryapi.com/api/v1/references/collegiate/xml/"+ words[0][0] +"?key=6474e14c-8bcf-4cca-a054-1b72f37b9b76";
 				$.get(url,function(data){
 					xmlDoc = data; 
 					var pos = xmlDoc.getElementsByTagName("fl");
@@ -43,7 +43,7 @@
 						words[0][1] = pos[0].textContent;
 					if (pos[1] != null)
 						words[0][2] = pos[1].textContent;
-					url = "http://www.dictionaryapi.com/api/v1/references/collegiate/xml/"+ words[1][0] +"?key=6474e14c-8bcf-4cca-a054-1b72f37b9b76";
+					url = "https://www.dictionaryapi.com/api/v1/references/collegiate/xml/"+ words[1][0] +"?key=6474e14c-8bcf-4cca-a054-1b72f37b9b76";
 					$.get(url,function(data){
 						xmlDoc = data; 
 						var pos2 = xmlDoc.getElementsByTagName("fl");
@@ -52,7 +52,7 @@
 						
 						if (pos2[1] != null)
 							words[1][2] = pos2[1].textContent;
-						url = "http://www.dictionaryapi.com/api/v1/references/collegiate/xml/"+ words[2][0] +"?key=6474e14c-8bcf-4cca-a054-1b72f37b9b76";
+						url = "https://www.dictionaryapi.com/api/v1/references/collegiate/xml/"+ words[2][0] +"?key=6474e14c-8bcf-4cca-a054-1b72f37b9b76";
 						$.get(url,function(data){
 							xmlDoc = data; 
 							var pos3 = xmlDoc.getElementsByTagName("fl");
@@ -108,7 +108,7 @@
 		function recursePos(rand, maxi)
 		{
 			
-			url = "http://www.dictionaryapi.com/api/v1/references/collegiate/xml/"+ posArray[rand][0] +"?key=6474e14c-8bcf-4cca-a054-1b72f37b9b76";
+			url = "https://www.dictionaryapi.com/api/v1/references/collegiate/xml/"+ posArray[rand][0] +"?key=6474e14c-8bcf-4cca-a054-1b72f37b9b76";
 			
 			$.get(url,function(data){
 				xmlDoc = data;
