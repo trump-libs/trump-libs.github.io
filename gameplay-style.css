@@ -98,19 +98,21 @@ form{
 #dictForm1{
         align-content: center;
         width: 15%;
-        font-size: 12px;
+        font-size: 15px;
 }
 #dictForm2{
         align-content: center;
         /*margin-left: 5em;*/
         width: 15%;
-        font-size: 12px;
+	margin-left: 5px;
+	margin-right: 5px;
+        font-size: 15px;
 }
 #dictForm3{
         align-content: center;
         /*margin-left: 5em;*/
         width: 15%;
-        font-size: 12px;
+        font-size: 15px;
 }
 /*#top{
         width: 0px;
