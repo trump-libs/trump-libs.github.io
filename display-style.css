@@ -78,7 +78,7 @@ body{
         background-image: url("Flagmodified.jpg");
         background-size: 100% 475%;
         background-repeat: no-repeat;
-        position: relative;
+        /*position: relative;*/
         /*      background-origin: border-box;*/
 
 }
