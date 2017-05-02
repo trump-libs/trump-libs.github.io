@@ -9,7 +9,7 @@ body{
 	background:-o-radial-gradient(circle, white 5%, whitesmoke 100%);
 	background:-ms-radial-gradient(circle, white 5%, whitesmoke 100%);
 	background:radial-gradient(circle, white 5%, whitesmoke 100%);*/
-	background-image: url("flag modified.jpg");
+	background-image: url("Flag modified.jpg");
 	background-size: 100% 220%;
 	background-origin: border-box;
 	background-repeat: no-repeat;
