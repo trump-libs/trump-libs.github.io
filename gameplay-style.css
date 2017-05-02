@@ -1,0 +1,66 @@
+body{
+	font-family: Helvetica;
+	color: black;
+	text-align: center;
+	background: whitesmoke;
+/*	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #b6b8b8));
+	background:-moz-radial-gradient(circle, white 5%, whitesmoke 100%);
+	background:-webkit-radial-gradient(circle, white 5%, whitesmoke 100%);
+	background:-o-radial-gradient(circle, white 5%, whitesmoke 100%);
+	background:-ms-radial-gradient(circle, white 5%, whitesmoke 100%);
+	background:radial-gradient(circle, white 5%, whitesmoke 100%);*/
+	background-image: url("flag modified.jpg");
+	background-size: 100% 220%;
+	background-origin: border-box;
+	background-repeat: no-repeat;
+
+}
+form{
+	text-align: center;
+	font-size: 30px;
+	font-weight: bold;
+	/*position: absolute;*/
+	/*bottom: 200px;*/
+	padding-top: 140px;
+}
+#dictForm1{
+	width: 15%
+}
+#dictForm2{
+	margin-left: 5em;
+	width: 15%
+}
+#dictForm3{
+	margin-left: 5em;
+	width: 15%
+}
+/*#top{
+	width: 0px;
+	height: 0px;
+	margin: 0;
+	text-align: center;
+	display: block;
+}
+#bottom {
+	position: absolute;
+	bottom: 0px;
+	height: -40px;
+	text-align: center;
+	display: block;
+}*/
+.btn-custom {
+  background-color: black ;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="whitesmoke", endColorstr="gray");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(whitesmoke), to(gray));
+  background-image: -moz-linear-gradient(top, whitesmoke, gray);
+  background-image: -ms-linear-gradient(top, whitesmoke, gray);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, whitesmoke), color-stop(100%, gray));
+  background-image: -webkit-linear-gradient(top, whitesmoke, gray);
+  background-image: -o-linear-gradient(top, whitesmoke, gray);
+  background-image: linear-gradient(whitesmoke, gray);
+  border-color: black black;
+  color: black !important;
+/*  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.69);*/
+  -webkit-font-smoothing: antialiased;
+}

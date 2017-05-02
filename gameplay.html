@@ -1,0 +1,188 @@
+<!doctype html>
+<html>
+<head>
+	<title>Donald Trump Tweet Game</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link href="gameplay-style.css" rel="stylesheet"/>
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+
+	<script>
+	
+		var posArray = new Array;
+		var sampleText = "This text will be funny and from the database online with many trump tweets.";
+		var counter = 0;
+		var punctuation = new Array;
+		//This array is populated with the three user words and their parts of speech
+		var words = new Array;
+		function pullTweet()
+		{
+			console.log("test");
+			url = "https://trump-libs.herokuapp.com/getTweet";
+			$.get(url, function(data){
+				sampleText = data;
+				console.log(sampleText);
+			});
+		}
+		//$(document).ready(function() 
+		//{
+			//$("#submitButton").click(function()
+			function madLib()
+			{
+				words[0] = [$("#dictForm1").val(), "DNE", "DNE"];
+				words[1] = [$("#dictForm2").val(), "DNE", "DNE"];
+				words[2] = [$("#dictForm3").val(), "DNE", "DNE"];
+				url = "http://www.dictionaryapi.com/api/v1/references/collegiate/xml/"+ words[0][0] +"?key=6474e14c-8bcf-4cca-a054-1b72f37b9b76";
+				$.get(url,function(data){
+					xmlDoc = data; 
+					var pos = xmlDoc.getElementsByTagName("fl");
+					if (pos[0] != null)
+						words[0][1] = pos[0].textContent;
+					if (pos[1] != null)
+						words[0][2] = pos[1].textContent;
+					url = "http://www.dictionaryapi.com/api/v1/references/collegiate/xml/"+ words[1][0] +"?key=6474e14c-8bcf-4cca-a054-1b72f37b9b76";
+					$.get(url,function(data){
+						xmlDoc = data; 
+						var pos2 = xmlDoc.getElementsByTagName("fl");
+						if (pos2[0] != null)
+							words[1][1] = pos2[0].textContent;
+						
+						if (pos2[1] != null)
+							words[1][2] = pos2[1].textContent;
+						url = "http://www.dictionaryapi.com/api/v1/references/collegiate/xml/"+ words[2][0] +"?key=6474e14c-8bcf-4cca-a054-1b72f37b9b76";
+						$.get(url,function(data){
+							xmlDoc = data; 
+							var pos3 = xmlDoc.getElementsByTagName("fl");
+							if (pos3[0] != null)
+								words[2][1] = pos3[0].textContent;
+							
+							if (pos3[1] != null)
+								words[2][2] = pos3[1].textContent;
+							console.log(words[0][0] + " " + words[0][1] + " " + words[0][2]);
+							console.log(words[1][0] + " " + words[1][1] + " " + words[1][2]);
+							console.log(words[2][0] + " " + words[2][1] + " " + words[2][2]);
+							if (words[0][1] == "DNE" || words[1][1] == "DNE" || words[2][1] == "DNE")
+								alert("Warning: one or more of your words were not real words and will not appear in the Mad Lib");
+							prepareText();
+						});	
+					});	
+					
+				});	
+			//});
+		//});
+		}
+		//}
+		function prepareText()
+		{
+			counter = 0;
+			var text = sampleText.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"")
+			var wordsArray = text.split(" ");
+			var wordsArrayPunc = sampleText.split(" ");
+			var cw;
+			//cw = current word
+			//nf = not found
+			//fi = found, ignore (i.e don't replace these words)
+			for (var i = 0; i < wordsArray.length; i++)
+			{	
+				cw = wordsArray[i].toLowerCase();
+	
+				if (cw == "the" || cw == "a" || cw == "am" || cw == "be" || cw == "make" || cw == "was" || cw == "are" || cw == "will")
+				{
+					posArray[i] = [wordsArray[i], "fi"];
+					counter++;
+				} else
+					posArray[i] = [wordsArray[i], "nf"];
+				punctuation[i] = ["",""];
+				if ("[.,/#!$%^&*;:{}=-_`~()]".includes(wordsArrayPunc[i][0]))
+  					punctuation[i][0] = wordsArrayPunc[i][0];
+				
+				if ("[.,/#!$%^&*;:{}=-_`~()]".includes(wordsArrayPunc[i][wordsArrayPunc[i].length-1]) && wordsArrayPunc[i].length > 1)
+					punctuation[i][1] = wordsArrayPunc[i][wordsArrayPunc[i].length-1];
+			}
+			rand = Math.floor(Math.random() * wordsArray.length);
+			recursePos(rand, wordsArray.length);
+		}
+		function recursePos(rand, maxi)
+		{
+			
+			url = "http://www.dictionaryapi.com/api/v1/references/collegiate/xml/"+ posArray[rand][0] +"?key=6474e14c-8bcf-4cca-a054-1b72f37b9b76";
+			
+			$.get(url,function(data){
+				xmlDoc = data;
+				var randPos = xmlDoc.getElementsByTagName("fl");
+				if (randPos[0] != null)
+					randPartOfSpeech = randPos[0].textContent;
+					
+				else
+					randPartofSpeech = "nullNotFound";
+				if (randPartOfSpeech != null && (randPartOfSpeech == words[0][1] || randPartOfSpeech == words[0][2]))
+				{
+					posArray[rand][0] = words[0][0];
+					posArray[rand][1] = randPartOfSpeech;
+					words[0][1] = "pl";
+  					words[0][2] = "pl";
+				} else if (randPartOfSpeech != null && (randPartOfSpeech == words[1][1] || randPartOfSpeech == words[1][2]))
+				{
+					posArray[rand][0] = words[1][0];
+					posArray[rand][1] = randPartOfSpeech;
+					words[1][1] = "pl";
+  					words[1][2] = "pl";
+				} else if (randPartOfSpeech != null && (randPartOfSpeech == words[2][1] || randPartOfSpeech == words[2][2]))
+				{
+					posArray[rand][0] = words[2][0];
+					posArray[rand][1] = randPartOfSpeech;
+					words[2][1] = "pl";
+  					words[2][2] = "pl";
+				}
+				
+				counter++;
+				posArray[rand][1] = randPartOfSpeech;
+				rand = Math.floor(Math.random() * maxi);
+				
+				if (counter < maxi && (words[0][1] != "pl" || words[1][1] != "pl" || words[2][1] != "pl"))
+				{
+					while (posArray[rand][1] != "nf")
+						rand = Math.floor(Math.random() * maxi);
+					recursePos(rand, maxi);
+				} else
+				{
+					displayArea.innerHTML = "<b>Original: </b>" + sampleText;
+					displayArea.innerHTML += "<br><b>Mad Lib: </b>";
+					var finalString = "";
+					for (var i = 0; i < maxi; i++)
+						finalString += punctuation[i][0] + posArray[i][0] + punctuation[i][1] + " ";
+					displayArea.innerHTML += finalString;
+					// send the fake tweet back to server
+					url = "https://trump-libs.herokuapp.com/submit";
+					$.post(url, {tweet: finalString}, function(data){
+						//sampleText = data;
+						console.log("posting, status: " + data);
+						var queryString = "?madlib=" + finalString;
+						window.location.href = "display.html" + queryString;
+					});
+				}
+				});
+			
+		}
+	</script>
+</head>
+	<body onload="pullTweet()">
+		<!-- <div id="top"><img src="flag top.png"/></div> -->
+		<form>
+			Input Three Words <br><br>
+			<input type = "text" name = "word" id = "dictForm1"/>
+			<input type = "text" name = "word" id = "dictForm2"/>
+			<input type = "text" name = "word" id = "dictForm3"/>
+			<br>
+		</form> <br><br>
+		<br>
+		<div id = "displayArea"></div>
+		<!-- <div id="bottom"><img src="flag bottom.png"/></div> -->
+		<div class="container">
+			<a class="btn-custom btn-primary btn-lg" role="button" onclick="madLib();" >Submit</a>
+		</div>
+	</body>
+</html>

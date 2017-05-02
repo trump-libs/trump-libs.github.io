@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+	<title>Donald Trump Tweet Game</title>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+	<link href="djt-style.css" rel="stylesheet"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script>
+		function update() {
+			theText = document.getElementById("box").value;
+			elem = document.getElementById("content");
+			elem.innerHTML += '<p class="links">' + theText + "</p>";
+			document.getElementById("box").value = "";
+		}
+	</script>
+</head>
+<body>
+	<h1>Trump Libs</h1>
+	<br><br>
+	<div class="container-fluid">
+		<a href="gameplay.html" class="btn-custom btn-primary btn-lg" role="button">Let's Play</a>
+	</div>
+</body>
+</html>
